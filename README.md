@@ -3,8 +3,8 @@
 The following is the display created in building this project:
 | | | 
 |:-------------------------:|:-------------------------:|
-|![Alt text](/Images/Login.png)| ![Alt text](/Images/Profile.png)|
-|![Alt text](/Images/Main.png)| ![Alt text](/Images/Content.png)|
+|![Alt text](/Images/Main.png)| ![Alt text](/Images/Profile.png)|
+|![Alt text](/Images/Content.png)| ![Alt text](/Images/Login.png)|
 
 ## Introduction
 To run this project in your local environment, you can simply clone this project then install all the dependencies needed, don't forget to run the json server which is used to store data in this application as dummy data. you can run json-server by typing command: `npm run json-server`. After the json server is running, you can immediately run this React project by typing the command: `npm start`
