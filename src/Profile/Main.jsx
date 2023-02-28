@@ -22,14 +22,12 @@ function Profile() {
     const userAccount = sessionStorage.getItem('user-account')
     const parseUserAccount = JSON.parse(userAccount)
 
-    const { data: userTweet, isSuccess, isLoading } = useQuery('user-tweet', fetchUserTweet, {
+    const { data: userTweet } = useQuery('user-tweet', fetchUserTweet, {
         select: (data) => {
             const tweet = data.filter(element => element.author === parseUserAccount.username)
             return tweet
         }
     })
-
-    if (isSuccess) console.log(userTweet)
 
     return (
         <VStack spacing={2}

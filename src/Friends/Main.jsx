@@ -11,7 +11,6 @@ import { useCustomMutation } from '../Custom/useCustomMutations'
 
 
 const TitlePage = () => {
-    console.log('render title friends')
     return (
         <React.Fragment>
             <Heading size={'md'}>Your Friend List</Heading>
@@ -30,7 +29,7 @@ function Friends() {
 
     const { data, isLoading, isSuccess } = useQuery('friend-list', getFriendList, {
         select: (data) => {
-            const userData = data.find(element => element.id == parseUserAccount.id)
+            const userData = data.find(element => element.id === parseUserAccount.id)
             return userData
         }
     })

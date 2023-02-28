@@ -20,7 +20,9 @@ on the Login menu, nothing special, authenticated user data will be stored in se
 ## Home Menu
 The main component in the main menu is `post tweet` where users can post tweets using the POST data method on the json-server endpoint users can input text, images and emoticons, `Note: images that have been posted will not be read if the page is refreshed because the image source will be allocated. need to be fixed for the next development.`
 
-Next for the content is implemented using useInfiniteQueries, but the use of useInfiniteQueries is customized according to what I want so that it becomes a custom hook that will be used repeatedly in this project. infiniteQueries is used to display some of the fetch data by paginating the json-server endpoint. in the case of this project, the user will click on the more button then react query will provide further data with the specified amount. Components built in. The components built into this content component use HOC (Higher Order Component) techniques, because this component will be used in bookmark navigation so it requires reusable components. in this content, Users can make comments on the content provided, like content and also save the content in the bookmark list
+Next for the content is implemented using useInfiniteQueries, but the use of useInfiniteQueries is customized according to what I want so that it becomes a custom hook that will be used repeatedly in this project. infiniteQueries is used to display some of the fetch data by paginating the json-server endpoint. in the case of this project, the user will click on the more button then react query will provide further data with the specified amount.
+
+The components built into this content component use HOC (Higher Order Component) techniques, because this component will be used in bookmark navigation so it requires reusable components. in this content, Users can make comments on the content provided, like content and also save the content in the bookmark list
 
 
 ## Search Bar & Other User Tweet

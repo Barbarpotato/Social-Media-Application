@@ -38,7 +38,7 @@ export const withContent = (WrappedComponent) => {
         const { data: getBookmark, isLoading: isBookmarkLoading, isSuccess: isBookmarkSuccess } =
             useQuery('bookmark', getBookmarkContent, {
                 select: (data) => {
-                    const userData = data.find(element => element.id == parseUserAccount.id)
+                    const userData = data.find(element => element.id === parseUserAccount.id)
                     return userData
                 }
             })
