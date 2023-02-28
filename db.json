@@ -1,0 +1,471 @@
+{
+  "news": [
+    {
+      "id": 1,
+      "profilePicture": "https://randomuser.me/api/portraits/med/men/1.jpg",
+      "imageURL": "https://ichef.bbci.co.uk/news/1024/branded_news/B5DC/production/_128665564_8ac1b33824fc7b293cb241541b00b2e59009511b707_1357_3604_20271000x563.jpg",
+      "title": "Serbia nationalist protests spike tensions over Russia",
+      "author": "BBC News",
+      "description": "Death threats were made against President Vucic who denounced the protesters as 'anti-Serbian'."
+    },
+    {
+      "id": 2,
+      "profilePicture": "https://randomuser.me/api/portraits/med/men/2.jpg",
+      "imageURL": "",
+      "title": "NFL's eight biggest Super Bowl windows right now? Chiefs, Eagles and Bengals top list; Bills at No. 7 - NFL.com",
+      "author": "Bucky Brooks",
+      "description": "With the 2022 NFL campaign in the books, it's time to look forward to next season -- and beyond. Who currently has the biggest Super Bowl window? Bucky Brooks provides his ranking of the top eight contenders for the next few Lombardi Trophies."
+    },
+    {
+      "id": 3,
+      "profilePicture": "https://randomuser.me/api/portraits/med/men/3.jpg",
+      "imageURL": "https://media.cnn.com/api/v1/images/stellar/prod/230217141325-05-murdaugh-0216.jpg?c=16x9&q=w_800,c_fill",
+      "title": "Paul Murdaugh confronted his father about finding pills a month before he and his mom were killed, prosecutors say - CNN",
+      "author": "Alta Spells",
+      "description": "Before prosecutors rested their case on Friday, they presented evidence in court showing Paul Murdaugh -- son of disgraced South Carolina attorney Alex Murdaugh -- confronted his father about pills about one month before both he and his mother were found fata…"
+    },
+    {
+      "id": 4,
+      "profilePicture": "https://randomuser.me/api/portraits/med/women/1.jpg",
+      "imageURL": "",
+      "title": "Kellie Pickler’s Husband Kyle Jacobs Dead by Suicide at Nashville Home - TMZ",
+      "author": "TMZ Staff",
+      "description": "The Nashville Police Department has announced Kellies husband, Kyle Jacobs, is the man dead by suicide at the couples Nashville home, he shot himself in an upstairs bedroom/office"
+    },
+    {
+      "id": 5,
+      "profilePicture": "https://randomuser.me/api/portraits/med/men/4.jpg",
+      "imageURL": "https://image.cnbcfm.com/api/v1/image/107190377-1675796187369-bing-edge-launch.PNG?v=1676678091&w=1920&h=1080",
+      "title": "Microsoft limits Bing A.I. chats after the chatbot had some unsettling conversations - CNBC",
+      "author": "Kif Leswing",
+      "description": "The move will limit some scenarios where long chat sessions can \"confuse\" the chat model, the company said in a blog post."
+    },
+    {
+      "id": 6,
+      "profilePicture": "https://randomuser.me/api/portraits/med/women/2.jpg",
+      "imageURL": "https://i.guim.co.uk/img/media/509fd51c7fb971c115769d88340dab907b2de562/0_187_5616_3370/master/5616.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=5a1c8245bd1d19c3bb08eb7d21b4e43c",
+      "title": "Over 100 children illegally employed by US slaughterhouse cleaning firm - The Guardian",
+      "author": "Maya Yang",
+      "description": "Labor department investigation finds Packers Sanitation Services Inc employed children between ages of 13 and 17 in eight states"
+    },
+    {
+      "id": 7,
+      "profilePicture": "https://randomuser.me/api/portraits/med/men/5.jpg",
+      "imageURL": "https://a4.espncdn.com/combiner/i?img=%2Fphoto%2F2022%2F0126%2Fr966240_1296x729_16%2D9.jpg",
+      "title": "Sources - Commanders finalize deal to make Eric Bieniemy new OC - ESPN",
+      "author": "John Keim",
+      "description": "The Washington Commanders have finalized a deal to make Eric Bieniemy the team's new offensive coordinator and assistant head coach, sources told ESPN on Friday, confirming multiple reports."
+    },
+    {
+      "id": 8,
+      "profilePicture": "https://randomuser.me/api/portraits/med/women/3.jpg",
+      "imageURL": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/EPNXD6HZGZDX3MYYHHDLFF4OTA.jpg&w=1440",
+      "title": "Tiger Woods in positionc to miss cut at Genesis Invitational - The Washington Post",
+      "author": "Glynn A. Hill",
+      "description": "Tiger Woods finished with three bogeys on his final four holes Friday and is in danger of missing the cut."
+    }
+  ],
+  "usersPost": [
+    {
+      "id": 1,
+      "profilePicture": "https://randomuser.me/api/portraits/med/men/77.jpg",
+      "author": "Max Karl",
+      "description": "Baron Fund's CEO Ron Baron's quarterly letter \"Letter from Ron\" was published recently. Click here to read the full letter.",
+      "imageURL": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1384898759/image_1384898759.jpg?io=getty-c-w1536",
+      "likes": [
+        {
+          "id": 2,
+          "username": "barbarpotato",
+          "email": "barbarpotato88@gmail.com"
+        },
+        {
+          "id": 1,
+          "username": "darmajr94",
+          "email": "barbarpotato94@gmail.com"
+        }
+      ],
+      "comments": [
+        {
+          "id": 1,
+          "profilePicture": "https://randomuser.me/api/portraits/med/women/99.jpg",
+          "author": "Heta Koll",
+          "comment": "Cant belive it!😂"
+        },
+        {
+          "id": 2,
+          "profilePicture": "https://randomuser.me/api/portraits/med/men/82.jpg",
+          "author": "Markus Makel",
+          "comment": "What was that is suposed to be nothing💀"
+        },
+        {
+          "id": 3,
+          "profilePicture": "https://randomuser.me/api/portraits/med/women/81.jpg",
+          "author": "Emma Kinderly",
+          "comment": "Such an interesting!!"
+        },
+        {
+          "id": 4,
+          "profilePicture": "https://randomuser.me/api/portraits/med/men/50.jpg",
+          "author": "darmajr94",
+          "comment": "This is from the bookmark!"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "profilePicture": "https://randomuser.me/api/portraits/med/men/7.jpg",
+      "author": "Stephen Johnson",
+      "description": "I’m no grammar purist. Trying to nail English down to a particular set of rules will leave you heartbroken and muttering, “it’s supposed to say 12 items or fewer” to a disinterested supermarket checker. Language changes constantly and it belongs to all of us …",
+      "imageURL": "https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/bc0a9461560b86a7415ff34a523a5962.jpg",
+      "likes": [
+        {
+          "id": 2,
+          "username": "barbarpotato",
+          "email": "barbarpotato88@gmail.com"
+        },
+        {
+          "id": 1,
+          "username": "darmajr94",
+          "email": "barbarpotato94@gmail.com"
+        }
+      ],
+      "comments": [
+        {
+          "id": 1,
+          "profilePicture": "https://randomuser.me/api/portraits/med/women/10.jpg",
+          "author": "Kimberly Holl",
+          "comment": "Cant belive it!"
+        },
+        {
+          "id": 2,
+          "profilePicture": "https://randomuser.me/api/portraits/med/men/8.jpg",
+          "author": "Masinus Gahril",
+          "comment": "Thx for the information!"
+        },
+        {
+          "id": 3,
+          "profilePicture": "https://randomuser.me/api/portraits/med/women/11.jpg",
+          "author": "Ada Konerlia",
+          "comment": "That was clever!"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "profilePicture": "https://randomuser.me/api/portraits/med/men/9.jpg",
+      "author": "Tom Lamont",
+      "description": "The UK is full of extremely rude-sounding towns and villages. But what’s it like to live in them? Some locals can’t wait to change the names, while others embrace the quirk – even selling signpost souvenirsOn the road to Twatt, a message arrives from a reside…",
+      "imageURL": "https://i.guim.co.uk/img/media/87783ce14a6ed66043ae6775d1a327c787b0e3fc/0_415_6240_3744/master/6240.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=842f624c742a573a7d795f71daac74b8",
+      "likes": [
+        {
+          "id": 1,
+          "username": "darmajr94",
+          "email": "barbarpotato94@gmail.com"
+        }
+      ],
+      "comments": [
+        {
+          "id": 1,
+          "profilePicture": "https://randomuser.me/api/portraits/med/men/13.jpg",
+          "author": "Xavier",
+          "comment": "Wow Save UK!"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "profilePicture": "https://randomuser.me/api/portraits/med/men/12.jpg",
+      "author": "Michael Sun",
+      "description": "The film, which generated an online frenzy over its gruelling audition process, was set to star Julia Garner and be directed by Madonna herselfA much-anticipated Madonna biopic, directed by the singer herself and starring the Ozark actor Julia Garner, has bee…",
+      "imageURL": "https://i.guim.co.uk/img/media/bc253656c8e728bb7699486caff0a6464e313d62/0_0_3906_2346/master/3906.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=2b87bca5e0760d407d8223fd8623a7cf",
+      "likes": [],
+      "comments": [
+        {
+          "id": 1,
+          "profilePicture": "https://randomuser.me/api/portraits/med/men/16.jpg",
+          "author": "Erick Koehen",
+          "comment": "cant wait to see!!"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "profilePicture": "https://randomuser.me/api/portraits/med/men/16.jpg",
+      "author": "Bryan Metzger",
+      "description": "According to the congressman's Instagram, he learned of his 2020 election loss to Democrat Tom Suozzi while on a tour of the Lincoln Memorial.",
+      "imageURL": "https://i.insider.com/63dad73a0a08ae0018a667f0?width=1200&format=jpeg",
+      "likes": [],
+      "comments": [
+        {
+          "id": 1,
+          "profilePicture": "https://randomuser.me/api/portraits/med/men/17.jpg",
+          "author": "Ewan Murray",
+          "comment": "wow cant believe it!"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "profilePicture": "https://randomuser.me/api/portraits/med/women/15.jpg",
+      "author": "Wendy Ide",
+      "description": "In their follow-up to The New Man, husband-and-wife team Josh Appignanesi and Devorah Baum turn the camera on themselves once more The new film from director Josh Appignanesi (Song of Songs, The Infidel) and his wife and co-director, Devorah Baum, is a sister…",
+      "imageURL": "https://i.guim.co.uk/img/media/0a2d0e04848ad7b313fb7ca1c2c8a1341340fbd3/23_0_3600_2160/master/3600.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdG8tcmV2aWV3LTMucG5n&enable=upscale&s=4ec7aa883b6c7ff79c8558e1e793245e",
+      "likes": [
+        {
+          "id": 1,
+          "username": "darmajr94",
+          "email": "barbarpotato94@gmail.com"
+        }
+      ],
+      "comments": [
+        {
+          "id": 1,
+          "profilePicture": "https://randomuser.me/api/portraits/med/men/18.jpg",
+          "author": "Jamal Nodel",
+          "comment": "What is this about?"
+        },
+        {
+          "id": 2,
+          "profilePicture": "https://randomuser.me/api/portraits/med/men/23.jpg",
+          "author": "Jamal Hosam",
+          "comment": "Very sad to hear!"
+        }
+      ]
+    },
+    {
+      "profilePicture": "https://randomuser.me/api/portraits/med/men/50.jpg",
+      "author": "darmajr94",
+      "description": "Hello World!😃",
+      "imageURL": "",
+      "likes": [],
+      "comments": [],
+      "id": 7
+    }
+  ],
+  "friendList": [
+    {
+      "id": 1,
+      "username": "darmajr94",
+      "email": "barbarpotato94@gmail.com",
+      "friendList": [
+        {
+          "name": "Olga Mančić",
+          "city": "Golubac",
+          "state": "Kosovo",
+          "country": "Serbia",
+          "email": "olga.mancic@example.com",
+          "imageURL": "https://randomuser.me/api/portraits/med/women/90.jpg",
+          "id": 6
+        },
+        {
+          "name": "Marion Craig",
+          "city": "Warragul",
+          "state": "South Australia",
+          "country": "Australia",
+          "email": "marion.craig@example.com",
+          "imageURL": "https://randomuser.me/api/portraits/med/women/68.jpg",
+          "id": 7
+        },
+        {
+          "name": "Tess Durand",
+          "city": "Toulon",
+          "state": "Bouches-du-Rhône",
+          "country": "France",
+          "email": "tess.durand@example.com",
+          "imageURL": "https://randomuser.me/api/portraits/med/women/12.jpg",
+          "id": 8
+        },
+        {
+          "name": "Vilma Kauppi",
+          "city": "Ylöjärvi",
+          "state": "Kainuu",
+          "country": "Finland",
+          "email": "vilma.kauppi@example.com",
+          "imageURL": "https://randomuser.me/api/portraits/med/women/17.jpg"
+        },
+        {
+          "name": "Marie Berhe",
+          "city": "Rykene",
+          "state": "Hedmark",
+          "country": "Norway",
+          "email": "marie.berhe@example.com",
+          "imageURL": "https://randomuser.me/api/portraits/med/women/50.jpg"
+        },
+        {
+          "name": "Carol Gordon",
+          "city": "Tullamore",
+          "state": "Limerick",
+          "country": "Ireland",
+          "email": "carol.gordon@example.com",
+          "imageURL": "https://randomuser.me/api/portraits/med/women/31.jpg"
+        },
+        {
+          "name": "Moa Hessen",
+          "city": "Fossbergom",
+          "state": "Trøndelag",
+          "country": "Norway",
+          "email": "moa.hessen@example.com",
+          "imageURL": "https://randomuser.me/api/portraits/med/women/67.jpg"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "username": "barbarpotato",
+      "email": "barbarpotato88@gmail.com",
+      "friendList": [
+        {
+          "name": "Alma Pedersen",
+          "city": "Gørløse",
+          "state": "Danmark",
+          "country": "Denmark",
+          "email": "alma.pedersen@example.com",
+          "imageURL": "https://randomuser.me/api/portraits/med/women/71.jpg"
+        },
+        {
+          "name": "Dhanashri Raval",
+          "city": "Fatehpur",
+          "state": "Lakshadweep",
+          "country": "India",
+          "email": "dhanashri.raval@example.com",
+          "imageURL": "https://randomuser.me/api/portraits/med/women/74.jpg"
+        }
+      ]
+    }
+  ],
+  "bookmark": [
+    {
+      "id": 1,
+      "username": "darmajr94",
+      "email": "barbarpotato94@gmail.com",
+      "bookmarkList": [
+        {
+          "id": 6,
+          "profilePicture": "https://randomuser.me/api/portraits/med/women/15.jpg",
+          "author": "Wendy Ide",
+          "description": "In their follow-up to The New Man, husband-and-wife team Josh Appignanesi and Devorah Baum turn the camera on themselves once more The new film from director Josh Appignanesi (Song of Songs, The Infidel) and his wife and co-director, Devorah Baum, is a sister…",
+          "imageURL": "https://i.guim.co.uk/img/media/0a2d0e04848ad7b313fb7ca1c2c8a1341340fbd3/23_0_3600_2160/master/3600.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdG8tcmV2aWV3LTMucG5n&enable=upscale&s=4ec7aa883b6c7ff79c8558e1e793245e",
+          "likes": [
+            {
+              "id": 1,
+              "username": "darmajr94",
+              "email": "barbarpotato94@gmail.com"
+            }
+          ],
+          "comments": [
+            {
+              "id": 1,
+              "profilePicture": "https://randomuser.me/api/portraits/med/men/18.jpg",
+              "author": "Jamal Nodel",
+              "comment": "What is this about?"
+            },
+            {
+              "id": 2,
+              "profilePicture": "https://randomuser.me/api/portraits/med/men/23.jpg",
+              "author": "Jamal Hosam",
+              "comment": "Very sad to hear!"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "profilePicture": "https://randomuser.me/api/portraits/med/men/12.jpg",
+          "author": "Michael Sun",
+          "description": "The film, which generated an online frenzy over its gruelling audition process, was set to star Julia Garner and be directed by Madonna herselfA much-anticipated Madonna biopic, directed by the singer herself and starring the Ozark actor Julia Garner, has bee…",
+          "imageURL": "https://i.guim.co.uk/img/media/bc253656c8e728bb7699486caff0a6464e313d62/0_0_3906_2346/master/3906.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=2b87bca5e0760d407d8223fd8623a7cf",
+          "likes": [],
+          "comments": [
+            {
+              "id": 1,
+              "profilePicture": "https://randomuser.me/api/portraits/med/men/16.jpg",
+              "author": "Erick Koehen",
+              "comment": "cant wait to see!!"
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "profilePicture": "https://randomuser.me/api/portraits/med/men/77.jpg",
+          "author": "Max Karl",
+          "description": "Baron Fund's CEO Ron Baron's quarterly letter \"Letter from Ron\" was published recently. Click here to read the full letter.",
+          "imageURL": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1384898759/image_1384898759.jpg?io=getty-c-w1536",
+          "likes": [
+            {
+              "id": 2,
+              "username": "barbarpotato",
+              "email": "barbarpotato88@gmail.com"
+            },
+            {
+              "id": 1,
+              "username": "darmajr94",
+              "email": "barbarpotato94@gmail.com"
+            }
+          ],
+          "comments": [
+            {
+              "id": 1,
+              "profilePicture": "https://randomuser.me/api/portraits/med/women/99.jpg",
+              "author": "Heta Koll",
+              "comment": "Cant belive it!😂"
+            },
+            {
+              "id": 2,
+              "profilePicture": "https://randomuser.me/api/portraits/med/men/82.jpg",
+              "author": "Markus Makel",
+              "comment": "What was that is suposed to be nothing💀"
+            },
+            {
+              "id": 3,
+              "profilePicture": "https://randomuser.me/api/portraits/med/women/81.jpg",
+              "author": "Emma Kinderly",
+              "comment": "Such an interesting!!"
+            },
+            {
+              "id": 4,
+              "profilePicture": "https://randomuser.me/api/portraits/med/men/50.jpg",
+              "author": "darmajr94",
+              "comment": "This is from the bookmark!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "username": "barbarpotato",
+      "email": "barbarpotato88@gmail.com",
+      "bookmarkList": [
+        {
+          "id": 4,
+          "profilePicture": "https://randomuser.me/api/portraits/med/men/12.jpg",
+          "author": "Michael Sun",
+          "description": "The film, which generated an online frenzy over its gruelling audition process, was set to star Julia Garner and be directed by Madonna herselfA much-anticipated Madonna biopic, directed by the singer herself and starring the Ozark actor Julia Garner, has bee…",
+          "imageURL": "https://i.guim.co.uk/img/media/bc253656c8e728bb7699486caff0a6464e313d62/0_0_3906_2346/master/3906.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=2b87bca5e0760d407d8223fd8623a7cf",
+          "likes": 51213,
+          "comments": [
+            {
+              "id": 1,
+              "profilePicture": "https://randomuser.me/api/portraits/med/men/16.jpg",
+              "author": "Erick Koehen",
+              "comment": "cant wait to see!!"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "userAccount": [
+    {
+      "id": 1,
+      "username": "darmajr94",
+      "password": "hahaha123",
+      "email": "barbarpotato94@gmail.com"
+    },
+    {
+      "id": 2,
+      "username": "barbarpotato",
+      "password": "hahaha123",
+      "email": "barbarpotato88@gmail.com"
+    }
+  ]
+}

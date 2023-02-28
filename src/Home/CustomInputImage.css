@@ -1,0 +1,18 @@
+ button {
+     cursor: pointer;
+     background: transparent;
+     border: 0;
+ }
+
+ button:focus {
+     outline: none;
+ }
+
+ button img {
+     width: 20px;
+     height: 20px;
+ }
+
+ input[type=file] {
+     display: none;
+ }
