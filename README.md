@@ -2,6 +2,7 @@
 ## User Interface
 The following is the display created in building this project:
 | | | 
+|:-------------------------:|:-------------------------:|
 |![Alt text](/Images/Login.png)| ![Alt text](/Images/Profile.png)|
 |![Alt text](/Images/Main.png)| ![Alt text](/Images/Content.png)|
 
