@@ -56,7 +56,7 @@ function CommentModal({ isOpen, onClose, dataPoint }) {
                         <Textarea onChange={handleTweetOtherUserPost} resize={'none'} variant={'unstyled'} placeholder={'Tweet Your reply...'} />
                     </ModalBody>
                     <ModalFooter>
-                        <Button colorScheme='blue' mr={3} onClick={() => {
+                        <Button colorScheme='purple' bg={'#885cd4'} mr={3} onClick={() => {
                             const Valid = handleReplyTweet()
                             if (!Valid) {
                                 toast({
