@@ -2,6 +2,7 @@ import React from 'react'
 import { VStack, Avatar, Heading, Text, Image, HStack, Box } from '@chakra-ui/react'
 import { useQuery } from 'react-query'
 import { useWindowSize } from '../Custom/useWindowSize'
+import { useParams } from 'react-router-dom'
 
 const ProfileTitle = () => {
     return (
@@ -16,56 +17,86 @@ const fetchUserTweet = async () => {
     return response.json()
 }
 
+const fetchProfile = async () => {
+    const response = await fetch('http://localhost:4000/userAccount')
+    return response.json()
+}
+
 function Profile() {
 
+    const { username } = useParams()
     const windowType = useWindowSize()
-    const userAccount = sessionStorage.getItem('user-account')
-    const parseUserAccount = JSON.parse(userAccount)
 
-    const { data: userTweet } = useQuery('user-tweet', fetchUserTweet, {
+    const { data: userTweet, isSuccess: isUserTweetSuccess, isLoading: isUserTweetLoading } = useQuery('user-tweet', fetchUserTweet, {
         select: (data) => {
-            const tweet = data.filter(element => element.author === parseUserAccount.username)
+            const tweet = data.filter(element => element.author === username)
             return tweet
         }
     })
 
+    const { data: profile, isSuccess: isProfleSuccess, isLoading: isProfileLoading } = useQuery('user-profile', fetchProfile, {
+        select: (data) => {
+            const tweet = data.filter(element => element.username === username)
+            return tweet
+        }
+    })
+
+    if (isUserTweetLoading && isProfileLoading) return <>Loading...</>
+
     return (
         <VStack spacing={2}
             align={'left'}
-            width={windowType === 'Desktop' ? '50%' : '80%'}
+            width={"80%"}
             height={'100vh'}
-            padding={'15px 5px 5px 15px'}>
+            padding={windowType === 'Desktop' ? '100px' : '0px'}>
             <ProfileTitle />
             <VStack align={'left'} spacing={-12} >
-                <Image borderRadius={'10px'} src='https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg' />
-                <Avatar size={'xl'} position={'relative'} left={5} src={'https://randomuser.me/api/portraits/med/men/16.jpg'} />
+                {isUserTweetSuccess && userTweet.length !== 0 ?
+                    <>
+                        <Image borderRadius={'10px'} src='https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg' />
+                        <Avatar size={'xl'} position={'relative'} left={5} src={userTweet[0].profilePicture} ></Avatar>
+                    </> :
+                    <>
+                        <Image borderRadius={'10px'} src='https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg' />
+                        <Avatar size={'xl'} position={'relative'} left={5} src={''} ></Avatar>
+                    </>}
             </VStack>
-            <Heading size={'md'}>{parseUserAccount.username}</Heading>
-            <Text opacity={0.8}>@{parseUserAccount.email}</Text>
-            <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit quaerat, nulla velit error ipsam saepe vel exercitationem et architecto asperiores! Rem minima, mollitia architecto ipsum praesentium accusamus perferendis neque alias!</Text>
-            <Text opacity={0.8}>Joined February 2023</Text>
+            {isProfleSuccess ?
+                <>
+                    <Heading size={'md'}>{profile[0].username}</Heading>
+                    <Text opacity={0.8}>@{profile[0].email}</Text>
+                    <Text>{profile[0].description}</Text>
+                    <Text opacity={0.8}>Joined {profile[0].joined}</Text>
+                </> : null
+            }
             <HStack spacing={5}>
-                <Text opacity={0.8}>50 Following</Text>
-                <Text opacity={0.8}>520 Followers</Text>
+                {isProfleSuccess &&
+                    <>
+                        <Text opacity={0.8}>{profile[0].following.length} Following</Text>
+                        <Text opacity={0.8}>{profile[0].followers.length} Followers</Text>
+                    </>
+                }
             </HStack>
             <Heading marginY={'50px'} size={'md'}>Your Tweets</Heading>
-            {userTweet ? userTweet.map((item, idx) => (
-                <VStack key={idx} align={'left'}>
-                    <Box>
-                        <HStack margin={'10px 20px 20px 10px'} align={'top'}>
-                            <Avatar src={item.profilePictureCreator} />
-                            <VStack align={'left'}>
-                                <Heading size={'md'}>{item.author}</Heading>
-                                <Text>{item.description}</Text>
-                                <Image borderRadius={'30px'} src={item.imageURL} />
-                            </VStack>
-                        </HStack>
-                    </Box>
-                </VStack>
-            ))
-                :
-                null}
-        </VStack>
+            {
+                userTweet ? userTweet.map((item, idx) => (
+                    <VStack key={idx} align={'left'}>
+                        <Box>
+                            <HStack margin={'10px 20px 20px 10px'} align={'top'}>
+                                <Avatar src={item.profilePicture} />
+                                <VStack align={'left'}>
+                                    <Heading size={'md'}>{item.author}</Heading>
+                                    <Text>{item.description}</Text>
+                                    <Image borderRadius={'30px'} src={item.imageURL} />
+                                </VStack>
+                            </HStack>
+                        </Box>
+                    </VStack>
+                ))
+                    :
+                    null
+            }
+        </VStack >
     )
 }
 

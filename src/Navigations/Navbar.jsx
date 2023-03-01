@@ -1,7 +1,6 @@
 import React from 'react'
-import { Box, VStack } from '@chakra-ui/react'
+import { Box, VStack, Heading } from '@chakra-ui/react'
 import { CurrentNavProvider } from '../Context/CurrentNavContext';
-import Logo from './Logo'
 import NavListDesktop from './NavListDesktop';
 import NavListMobile from './NavListMobile';
 import { useWindowSizeContext } from '../Context/WindowSizeContext';
@@ -10,7 +9,6 @@ function NavBar() {
 
     const windowType = useWindowSizeContext()
 
-    console.log('render NavBar')
     return (
         <Box
             w={'20%'} height={'100vh'}>
@@ -18,7 +16,7 @@ function NavBar() {
                 position={'fixed'}
             >
                 <Box height={'100vh'} paddingLeft={"20px"} paddingTop={"30%"}>
-                    <Logo />
+                    {windowType === 'Desktop' ? <Heading colorScheme={'purple'} size={'md'} color={'#885cd4'}><em>Social Media App</em></Heading> : null}
                     <CurrentNavProvider>
                         {windowType === 'Desktop' ? <NavListDesktop /> : <NavListMobile></NavListMobile>}
                     </CurrentNavProvider>

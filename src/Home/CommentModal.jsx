@@ -24,7 +24,7 @@ function CommentModal({ isOpen, onClose, dataPoint }) {
         const tweetObject = [
             ...dataPoint.comments, {
                 "id": dataPoint.comments.length + 1,
-                "profilePicture": "https://randomuser.me/api/portraits/med/men/50.jpg",
+                "profilePicture": parseUserAccount.profilePicture,
                 "author": parseUserAccount.username,
                 "comment": tweet
             }

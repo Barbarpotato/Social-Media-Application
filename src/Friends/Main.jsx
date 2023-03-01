@@ -65,7 +65,7 @@ function Friends() {
                     <HStack>
                         <Popover trigger='hover'>
                             <PopoverTrigger>
-                                <Avatar size={'lg'} src={friend.imageURL} onClick={() => console.log('click avatar!')} />
+                                <Avatar size={'lg'} src={friend.imageURL} />
                             </PopoverTrigger>
                             <PopoverContent>
                                 <PopoverArrow />
@@ -80,6 +80,16 @@ function Friends() {
                                                 <Text>{Math.floor(Math.random() * 10000) + "  Followers"}</Text>
                                                 <Text>{Math.floor(Math.random() * 10000) + "  Following"}</Text>
                                             </HStack>
+                                            <Button position={'relative'} right={0} onClick={() => {
+                                                handleUnfollowFriendList(friend.id)
+                                                toast({
+                                                    description: "You Unfollow Your Friends",
+                                                    status: 'error',
+                                                    duration: 2000,
+                                                    isClosable: false,
+                                                })
+                                            }}
+                                                colorScheme={'purple'} bg={'#885cd4'} color={'white'} borderRadius={'25px'}>Unfollow</Button>
                                         </VStack>
                                     </HStack>
                                 </PopoverBody>
@@ -89,16 +99,6 @@ function Friends() {
                             <Text fontSize={'2xl'}>{friend.name}</Text>
                             <Text fontSize={'xl'}>{friend.email}</Text>
                         </VStack>
-                        <Button onClick={() => {
-                            handleUnfollowFriendList(friend.id)
-                            toast({
-                                description: "You Unfollow Your Friends",
-                                status: 'error',
-                                duration: 2000,
-                                isClosable: false,
-                            })
-                        }}
-                            colorScheme={'blue'} bg={'#1DA1F2'} color={'white'} borderRadius={'25px'}>Unfollow</Button>
                     </HStack>
                 ))
             }

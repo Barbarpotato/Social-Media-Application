@@ -1,4 +1,5 @@
 import React from 'react'
+import SearchTweet from '../Others/SearchTweet'
 import { Text, Heading, VStack, StackDivider, Image, Box, Button } from '@chakra-ui/react'
 import { useCustomInfiniteQuery } from '../Custom/useCustomInfiniteQuery'
 import NewsLoading from '../Loading/NewsLoading'
@@ -35,17 +36,18 @@ function News() {
         <VStack spacing={4}
             align={'left'}
             divider={<StackDivider borderColor='gray.200' />}
-            width={windowType === 'Desktop' ? '50%' : '80%'}
+            width={'80%'}
             height={'100vh'}
-            padding={'15px 5px 5px 15px'} >
+            padding={windowType === 'Desktop' ? '50px' : '0px'} >
             <TrendTitle />
+            <SearchTweet />
             {
                 isSuccess &&
                 newsData.pages.map(page =>
                     page.map((article, idx) => (
                         <Box padding={'30px'} key={idx}>
-                            <Heading size={'xl'}>#{article.title}</Heading>
-                            <Text fontSize={'2xl'}>{article.description}</Text>
+                            <Heading size={windowType === 'Desktop' ? 'xl' : 'md'}>#{article.title}</Heading>
+                            <Text fontSize={windowType === 'Desktop' ? '2xl' : 'md'}>{article.description}</Text>
                             {article.imageURL ? < Image borderRadius={'10px'} src={article.imageURL} /> : null}
                         </Box>
                     ))

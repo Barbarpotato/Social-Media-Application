@@ -26,6 +26,19 @@ const TextAreaTweet = () => {
         if (image) setImageUrl(URL.createObjectURL(image))
     }, [image])
 
+    const convertToBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+            const fileReader = new FileReader();
+            fileReader.readAsDataURL(file);
+            fileReader.onload = () => {
+                resolve(fileReader.result);
+            };
+            fileReader.onerror = (error) => {
+                reject(error);
+            };
+        });
+    };
+
     const onEmojiClick = (emojiObject, _event) => {
         setText(prevState => prevState + emojiObject.emoji)
     };
@@ -36,14 +49,19 @@ const TextAreaTweet = () => {
         setText('')
     }
 
-    const handlePostTweetUser = () => {
-        //! Hardcoded object
+    const handlePostTweetUser = async () => {
+        let base64 = ''
+        try {
+            base64 = await convertToBase64(image)
+        } catch (_err) {
+            base64 = ''
+        }
         const postObject = {
-            profilePicture: "https://randomuser.me/api/portraits/med/men/50.jpg",
+            profilePicture: parseUserAccount.profilePicture,
             author: parseUserAccount.username,
             description: text,
-            imageURL: imageURL,
-            likes: 0,
+            imageURL: base64,
+            likes: [],
             comments: []
         }
         if (!text) return null
@@ -108,11 +126,11 @@ const TextAreaTweet = () => {
                         }
                         clearState()
                     }}
-                        colorScheme={'blue'}
-                        bg={'#1DA1F2'}
+                        colorScheme={'purple'}
+                        bg={'#885cd4'}
                         borderRadius={'20px 20px 20px 20px'}
                         width={'70px'} padding={'8px 10px 8px 10px'}>
-                        Tweet
+                        Post
                     </Button>
                 </Box>
             </HStack>
@@ -122,8 +140,6 @@ const TextAreaTweet = () => {
 }
 
 function CreateTweetUser() {
-
-    console.log('render crete tweet')
 
     return (
         <React.Fragment>

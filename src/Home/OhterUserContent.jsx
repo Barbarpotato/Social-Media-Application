@@ -26,7 +26,7 @@ const mainContent = ({
                 content.map((item) => (
                     <VStack key={item.id} align={'left'}>
                         <Box>
-                            <HStack margin={'10px 20px 20px 10px'} align={'top'}>
+                            <HStack align={'top'}>
                                 <Avatar src={item.profilePicture} />
                                 <VStack align={'left'}>
                                     <Heading size={'md'}>{item.author}</Heading>
@@ -45,7 +45,7 @@ const mainContent = ({
                                             setDataPoint(item)
                                             onOpenModalComment()
                                         }}>
-                                            <AiOutlineRetweet /> Tweet
+                                            <AiOutlineRetweet />
                                         </Button>
                                         <Button onClick={() => {
                                             handleBookmark(item)
@@ -66,7 +66,7 @@ const mainContent = ({
                                                 })
                                             }
                                         }}>
-                                            <BiBookmark /> Bookmark
+                                            <BiBookmark />
                                         </Button>
                                     </HStack>
                                     {isOpenComment.open && item.id === isOpenComment.index ?
@@ -84,7 +84,7 @@ const mainContent = ({
             <Button colorScheme={'white'}
                 width={'100%'}
                 bg={'white'}
-                color={'#1DA1F2'} disabled={isFetchingNextPage}
+                color={'purple'} disabled={isFetchingNextPage}
                 marginTop={'10px'} size={'lg'}
                 borderRadius={'10px'}
                 onClick={() => fetchNextPage()}>More</Button>

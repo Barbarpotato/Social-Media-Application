@@ -22,35 +22,33 @@ const mainContent = ({
     return (
         <>
             <BookmarkTitle />
-            <VStack >
-                {isBookmarkSuccess && getBookmark ? getBookmark.bookmarkList.map((item, idx) => (
-                    <VStack key={idx} align={'left'}>
-                        <Box>
-                            <HStack margin={'10px 20px 20px 10px'} align={'top'}>
-                                <Avatar src={item.profilePictureCreator} />
-                                <VStack align={'left'}>
-                                    <Heading size={'md'}>{item.author}</Heading>
-                                    <Text>{item.description}</Text>
-                                    <Image borderRadius={'30px'} src={item.imageURL} />
-                                    <HStack>
-                                        <Button onClick={() => {
-                                            handleUnBookMark(item)
-                                            toast({
-                                                title: 'You Unbookmark the content',
-                                                status: 'success',
-                                                duration: 2000,
-                                                isClosable: false,
-                                            })
-                                        }}>
-                                            <BiBookmark /> Unbookmark
-                                        </Button>
-                                    </HStack>
-                                </VStack>
-                            </HStack>
-                        </Box>
-                    </VStack>
-                )) : null}
-            </VStack>
+            {isBookmarkSuccess && getBookmark ? getBookmark.bookmarkList.map((item, idx) => (
+                <VStack key={idx} align={'left'}>
+                    <Box>
+                        <HStack margin={'10px 20px 20px 10px'} align={'top'}>
+                            <Avatar src={item.profilePicture} />
+                            <VStack align={'left'}>
+                                <Heading size={'md'}>{item.author}</Heading>
+                                <Text>{item.description}</Text>
+                                <Image borderRadius={'30px'} src={item.imageURL} />
+                                <HStack>
+                                    <Button onClick={() => {
+                                        handleUnBookMark(item)
+                                        toast({
+                                            title: 'You Unbookmark the content',
+                                            status: 'success',
+                                            duration: 2000,
+                                            isClosable: false,
+                                        })
+                                    }}>
+                                        <BiBookmark /> Unbookmark
+                                    </Button>
+                                </HStack>
+                            </VStack>
+                        </HStack>
+                    </Box>
+                </VStack>
+            )) : null}
         </>
     )
 }
@@ -58,16 +56,18 @@ const mainContent = ({
 const BookmarkContent = withContent(mainContent)
 
 function Bookmark() {
+
     const windowType = useWindowSize()
+
     return (
         <VStack spacing={4}
             align={'left'}
             divider={< StackDivider borderColor='gray.200' />}
-            width={windowType === 'Desktop' ? '50%' : '80%'}
+            width={'80%'}
             height={'100vh'}
-            padding={'15px 5px 5px 15px'} >
+            padding={windowType === 'Desktop' ? '100px' : '0px'} >
             <BookmarkContent />
-        </VStack>
+        </VStack >
     )
 }
 

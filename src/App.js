@@ -5,7 +5,6 @@ import Content from './Home/Content'
 import { Routes, Route } from 'react-router-dom'
 import { HStack, StackDivider } from '@chakra-ui/react'
 import { useWindowSizeContext } from './Context/WindowSizeContext'
-import Trends from './Others/Trends'
 import News from './Explore/Main'
 import Friends from './Friends/Main'
 import Bookmark from './Bookmark/Main'
@@ -20,7 +19,6 @@ const MainContent = (Component, windowType) => {
     <HStack height={'100vh'} divider={<StackDivider borderColor='gray.200' />} >
       <NavBar />
       {Component}
-      {windowType === 'Desktop' ? <Trends /> : null}
     </HStack>
   )
 }
@@ -39,7 +37,7 @@ function App() {
           <Route path='/Explore' element={MainContent(<News />, windowType)}></Route>
           <Route path='/Friends' element={MainContent(<Friends />, windowType)}></Route>
           <Route path='/Bookmark' element={MainContent(<Bookmark />, windowType)}></Route>
-          <Route path='/Profile' element={MainContent(<Profile />, windowType)}></Route>
+          <Route path='/Profile/:username' element={MainContent(<Profile />, windowType)}></Route>
         </Routes>
       </QueryClientProvider>
     </ChakraProvider >

@@ -9,8 +9,11 @@ function NavListDesktop() {
 
     const { active, setActive } = useCurrentNavContext()
 
+    const userAccount = sessionStorage.getItem('user-account')
+    const parseUserAccount = JSON.parse(userAccount)
+
     const activeNavBarStyle = (type) => {
-        return { color: active === type ? '#1DA1F2' : 'black', marginTop: '20%' }
+        return { color: active === type ? '#885cd4' : 'black', marginTop: '20%' }
     }
 
     return (
@@ -56,7 +59,7 @@ function NavListDesktop() {
                         </HStack>
                     </Box>
                 </Link>
-                <Link to={'/Profile'}>
+                <Link to={`/Profile/${parseUserAccount.username}`}>
                     <Box onClick={() => setActive('Other')} style={activeNavBarStyle('Other')}>
                         <HStack spacing={4}>
                             <RiUserFill />
