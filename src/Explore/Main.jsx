@@ -1,5 +1,5 @@
 import React from 'react'
-import SearchTweet from '../Others/SearchTweet'
+import SearchTweet from './SearchTweet'
 import { Text, Heading, VStack, StackDivider, Image, Box, Button } from '@chakra-ui/react'
 import { useCustomInfiniteQuery } from '../Custom/useCustomInfiniteQuery'
 import NewsLoading from '../Loading/NewsLoading'

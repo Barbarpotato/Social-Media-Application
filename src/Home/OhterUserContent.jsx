@@ -13,7 +13,7 @@ const mainContent = ({
     toast, errorBookmark,
     dataPoint, setDataPoint, isOpenComment,
     onOpenModalComment, onCloseModalComment, isOpenModalComment,
-    fetchNextPage, isFetchingNextPage
+    fetchNextPage, isFetchingNextPage, windowType
 }) => {
 
     if (isLoading) return <OtherContentLoading />
@@ -24,13 +24,15 @@ const mainContent = ({
                 dataPoint={dataPoint}></CommentModal>
             {isSuccess && data.pages.map((content) =>
                 content.map((item) => (
-                    <VStack key={item.id} align={'left'}>
+                    <VStack key={item.id} align={'left'}
+                        paddingY={windowType === 'Desktop' ? '20px' : '10px'}
+                        paddingX={windowType === 'Desktop' ? '100px' : '10px'}>
                         <Box>
                             <HStack align={'top'}>
                                 <Avatar src={item.profilePicture} />
                                 <VStack align={'left'}>
                                     <Heading size={'md'}>{item.author}</Heading>
-                                    <Text>{item.description}</Text>
+                                    <Text align={'justify'}>{item.description}</Text>
                                     <Image onClick={() => {
                                         setDataPoint(item)
                                     }} borderRadius={'30px'} src={item.imageURL} />

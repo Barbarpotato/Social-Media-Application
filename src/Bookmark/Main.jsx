@@ -5,23 +5,14 @@ import { useWindowSize } from '../Custom/useWindowSize'
 import React from 'react'
 import { withContent } from '../HOC/withContent'
 
-const BookmarkTitle = () => {
-    return (
-        <React.Fragment>
-            <Heading size={'md'}>Your Saved Content</Heading>
-        </React.Fragment>
-    )
-}
-
 const mainContent = ({
-    handleUnBookMark, getBookmark, isBookmarkSuccess,
-    isBookmarkLoading, toast
-}) => {
+    handleUnBookMark, getBookmark, isBookmarkSuccess, isBookmarkLoading, toast }) => {
+
     if (isBookmarkLoading) return <OtherContentLoading />
 
     return (
         <>
-            <BookmarkTitle />
+            <Heading size={'md'}>Your Saved Content</Heading>
             {isBookmarkSuccess && getBookmark ? getBookmark.bookmarkList.map((item, idx) => (
                 <VStack key={idx} align={'left'}>
                     <Box>
@@ -40,8 +31,8 @@ const mainContent = ({
                                             duration: 2000,
                                             isClosable: false,
                                         })
-                                    }}>
-                                        <BiBookmark /> Unbookmark
+                                    }}> Unbookmark
+                                        <BiBookmark />
                                     </Button>
                                 </HStack>
                             </VStack>

@@ -22,8 +22,7 @@ function Friends() {
 
     const windowType = useWindowSize()
 
-    const userAccount = sessionStorage.getItem('user-account')
-    const parseUserAccount = JSON.parse(userAccount)
+    const parseUserAccount = JSON.parse(sessionStorage.getItem('user-account'))
 
     const toast = useToast()
 

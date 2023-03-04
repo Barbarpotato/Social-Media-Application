@@ -37,7 +37,7 @@ function App() {
           <Route path='/Explore' element={MainContent(<News />, windowType)}></Route>
           <Route path='/Friends' element={MainContent(<Friends />, windowType)}></Route>
           <Route path='/Bookmark' element={MainContent(<Bookmark />, windowType)}></Route>
-          <Route path='/Profile/:username' element={MainContent(<Profile />, windowType)}></Route>
+          <Route path='/Profile/:id' element={MainContent(<Profile />, windowType)}></Route>
         </Routes>
       </QueryClientProvider>
     </ChakraProvider >

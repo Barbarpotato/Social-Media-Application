@@ -9,8 +9,7 @@ function NavListMobile() {
 
     const { active, setActive } = useCurrentNavContext()
 
-    const userAccount = sessionStorage.getItem('user-account')
-    const parseUserAccount = JSON.parse(userAccount)
+    const parseUserAccount = JSON.parse(sessionStorage.getItem('user-account'))
 
     const activeNavBarStyle = (type) => {
         return { color: active === type ? '#885cd4' : 'black', marginTop: '20%' }
@@ -45,7 +44,7 @@ function NavListMobile() {
                 </Box>
                 <Box paddingTop={'20px'} onClick={() => setActive('Other')} style={activeNavBarStyle('Other')}>
                     <HStack spacing={4}>
-                        <Link to={`Profile/${parseUserAccount.username}`}>
+                        <Link to={`/Profile/${parseUserAccount.id}`}>
                             <RiUserFill />
                         </Link>
                     </HStack>

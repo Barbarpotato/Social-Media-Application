@@ -7,7 +7,20 @@ import { useCustomMutation } from '../Custom/useCustomMutations';
 import { useWindowSizeContext } from '../Context/WindowSizeContext';
 import './CustomInputImage.css';
 
-const TextAreaTweet = () => {
+export const convertToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(file);
+        fileReader.onload = () => {
+            resolve(fileReader.result);
+        };
+        fileReader.onerror = (error) => {
+            reject(error);
+        };
+    });
+};
+
+const TextAreaTweet = ({ parseUserAccount }) => {
 
     const windowType = useWindowSizeContext()
     const toast = useToast()
@@ -17,27 +30,11 @@ const TextAreaTweet = () => {
     const [imageURL, setImageUrl] = useState('')
     const inputFile = useRef(null);
 
-    const userAccount = sessionStorage.getItem('user-account')
-    const parseUserAccount = JSON.parse(userAccount)
-
     const { mutate: postUserTweet } = useCustomMutation(postTweet)
 
     useEffect(() => {
         if (image) setImageUrl(URL.createObjectURL(image))
     }, [image])
-
-    const convertToBase64 = (file) => {
-        return new Promise((resolve, reject) => {
-            const fileReader = new FileReader();
-            fileReader.readAsDataURL(file);
-            fileReader.onload = () => {
-                resolve(fileReader.result);
-            };
-            fileReader.onerror = (error) => {
-                reject(error);
-            };
-        });
-    };
 
     const onEmojiClick = (emojiObject, _event) => {
         setText(prevState => prevState + emojiObject.emoji)
@@ -141,14 +138,17 @@ const TextAreaTweet = () => {
 
 function CreateTweetUser() {
 
+    const userAccount = sessionStorage.getItem('user-account')
+    const parseUserAccount = JSON.parse(userAccount)
+
     return (
         <React.Fragment>
             <HStack>
-                <Box position={'static'} width={'10%'}>
-                    <Avatar size={'sm'} />
+                <Box position={'static'} >
+                    <Avatar src={parseUserAccount.profilePicture} size={'md'} />
                 </Box>
                 <Box width={'70%'}>
-                    <TextAreaTweet />
+                    <TextAreaTweet parseUserAccount={parseUserAccount} />
                 </Box>
             </HStack>
         </React.Fragment>

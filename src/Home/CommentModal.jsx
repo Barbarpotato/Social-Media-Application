@@ -9,7 +9,7 @@ import {
 function CommentModal({ isOpen, onClose, dataPoint }) {
 
     const toast = useToast()
-    const { mutate: commentOtherPost } = useCustomMutation(commentOtherUserContent)
+    const { mutate: commentOtherPost } = useCustomMutation(commentOtherUserContent, 'user-Content')
     const [tweet, setTweet] = useState('')
 
     const userAccount = sessionStorage.getItem('user-account')
@@ -23,18 +23,12 @@ function CommentModal({ isOpen, onClose, dataPoint }) {
         //! hardcoded profle data.
         const tweetObject = [
             ...dataPoint.comments, {
+                "authorId": parseUserAccount.id,
                 "id": dataPoint.comments.length + 1,
-                "profilePicture": parseUserAccount.profilePicture,
-                "author": parseUserAccount.username,
                 "comment": tweet
             }
         ]
-        const newDataPoint = { ...dataPoint, comments: tweetObject }
-        if (!tweet) return null
-        else {
-            commentOtherPost(newDataPoint)
-            return true
-        }
+        commentOtherPost({ ...dataPoint, comments: tweetObject })
     }
 
     return (
@@ -56,25 +50,15 @@ function CommentModal({ isOpen, onClose, dataPoint }) {
                         <Textarea onChange={handleTweetOtherUserPost} resize={'none'} variant={'unstyled'} placeholder={'Tweet Your reply...'} />
                     </ModalBody>
                     <ModalFooter>
-                        <Button colorScheme='purple' bg={'#885cd4'} mr={3} onClick={() => {
-                            const Valid = handleReplyTweet()
-                            if (!Valid) {
-                                toast({
-                                    title: 'Failed',
-                                    description: "Unable to Comment empty messages!",
-                                    status: 'error',
-                                    duration: 2000,
-                                    isClosable: false,
-                                })
-                            } else {
-                                toast({
-                                    title: 'Comment Has Been Sent!',
-                                    status: 'info',
-                                    duration: 2000,
-                                    isClosable: false,
-                                })
-                                onClose()
-                            }
+                        <Button isDisabled={!tweet} colorScheme='purple' bg={'#885cd4'} mr={3} onClick={() => {
+                            handleReplyTweet()
+                            toast({
+                                title: 'Comment Has Been Sent!',
+                                status: 'info',
+                                duration: 2000,
+                                isClosable: false,
+                            })
+                            onClose()
                         }}>
                             Reply
                         </Button>

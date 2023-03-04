@@ -4,14 +4,6 @@ import CreateTweetUser from './CreateTweetUser'
 
 import OhterUserContent from './OhterUserContent'
 
-const TitlePage = () => {
-    return (
-        <React.Fragment>
-            <Heading size={'md'}>Home</Heading>
-        </React.Fragment>
-    )
-}
-
 function Content() {
     return (
         <VStack
@@ -21,7 +13,7 @@ function Content() {
             width={"80%"}
             height={'100vh'}
             padding={'0px'}>
-            <TitlePage />
+            <Heading size={'md'}>Home</Heading>
             <CreateTweetUser />
             <OhterUserContent />
         </VStack>

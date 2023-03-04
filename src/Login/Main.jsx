@@ -9,7 +9,7 @@ const isAccountExisted = (dataPoint, name, email) => {
     const checkUserName = dataPoint.find(property => property.username === name)
     const checkEmail = dataPoint.find(property => property.email === email)
     if (checkUserName !== undefined || checkEmail !== undefined) {
-        return [true, checkUserName]
+        return true
     }
     else return false
 }
@@ -20,7 +20,35 @@ const isAccountAuthenticated = (dataPoint, name, password) => {
     if (checkPassword !== undefined || checkUserName !== undefined) {
         return [true, checkUserName]
     } else return [false, null]
+}
 
+const getMonthbyText = (number) => {
+    switch (number) {
+        case 0:
+            return 'Janurary'
+        case 1:
+            return 'February'
+        case 2:
+            return 'March'
+        case 3:
+            return 'April'
+        case 4:
+            return 'May'
+        case 5:
+            return 'June'
+        case 6:
+            return 'July'
+        case 7:
+            return 'August'
+        case 8:
+            return 'September'
+        case 9:
+            return 'October'
+        case 10:
+            return 'November'
+        case 11:
+            return 'December'
+    }
 }
 
 function Login({ type }) {
@@ -57,7 +85,9 @@ function Login({ type }) {
     const handleSignupButton = () => {
         setIsLoading(true)
         setTimeout(() => {
-            const [UserExist, account] = isAccountExisted(UserAccount, name, email)
+            const id = Date.now()
+            const date = new Date()
+            const UserExist = isAccountExisted(UserAccount, name, email)
             if (UserExist) {
                 setError('Username already used!')
                 setIsLoggedin(false)
@@ -65,11 +95,15 @@ function Login({ type }) {
             }
             else {
                 sessionStorage.setItem('user-account', JSON.stringify({
-                    id: account.id, username: account.username,
-                    email: account.email, profilePicture: account.profilePicture
+                    id: id, username: name, email: email
                 }))
-                RegisterAccount({ username: name, password, email })
-                setIsLoading(false)
+                RegisterAccount({
+                    id: id,
+                    username: name, password, email, joined: getMonthbyText(date.getMonth()) + ' ' + date.getFullYear(),
+                    followers: [], following: [], description: '',
+                    profilePicture: '', backgroundPicture: 'https://i.pinimg.com/originals/4f/d6/22/4fd622433a21e15d7c12d7e2390f87ad.jpg'
+                })
+                setIsLoggedin(true)
             }
         }, 3000)
     }

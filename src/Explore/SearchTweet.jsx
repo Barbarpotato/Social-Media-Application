@@ -22,7 +22,7 @@ function SearchTweet() {
 
     const { data: UserAccount } = useQuery('search-tweet', FetchTweetUser, {
         select: (data) => {
-            const selectiveAccount = data.filter(element => element.username !== parseUserAccount.username)
+            const selectiveAccount = data.filter(element => element.id !== parseUserAccount.id)
             return selectiveAccount
         }
     })
@@ -53,7 +53,7 @@ function SearchTweet() {
                                 <HStack key={idx}>
                                     <Popover trigger='hover'>
                                         <PopoverTrigger>
-                                            <Link to={`/Profile/${property.username}`}>
+                                            <Link to={`/Profile/${property.id}`}>
                                                 <Avatar src={property.profilePicture} />
                                             </Link>
                                         </PopoverTrigger>
