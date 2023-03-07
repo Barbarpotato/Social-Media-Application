@@ -1,18 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import SearchTweet from './SearchTweet'
-import { Navigate } from 'react-router-dom'
-import { Text, Heading, VStack, StackDivider, Image, Box, Button } from '@chakra-ui/react'
+import { Text, Heading, VStack, StackDivider, Image, Box, Center, Spinner } from '@chakra-ui/react'
 import { useCustomInfiniteQuery } from '../Custom/useCustomInfiniteQuery'
 import NewsLoading from '../Loading/NewsLoading'
 import { useWindowSize } from '../Custom/useWindowSize'
-
-const TrendTitle = () => {
-    return (
-        <React.Fragment>
-            <Heading size={'md'}>Trends For You</Heading>
-        </React.Fragment>
-    )
-}
 
 const FetchNewsData = async ({ pageParam = 1 }) => {
     const response = await fetch(`http://localhost:4000/news?_limit=3&_page=${pageParam}`)
@@ -25,7 +16,22 @@ function News() {
 
     const { data: newsData,
         isLoading, isSuccess,
-        fetchNextPage, isFetchingNextPage } = useCustomInfiniteQuery('news-content', FetchNewsData)
+        fetchNextPage, hasNextPage } = useCustomInfiniteQuery('news-content', FetchNewsData)
+
+
+    const onScroll = () => {
+        const scrollTop = document.documentElement.scrollTop
+        const scrollHeight = document.documentElement.scrollHeight
+        const clientHeight = document.documentElement.clientHeight
+        if (scrollTop + clientHeight >= scrollHeight - 1) {
+            fetchNextPage()
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', onScroll)
+        return () => window.removeEventListener('scroll', onScroll)
+    }, [])
 
     if (isLoading) {
         return (
@@ -40,7 +46,7 @@ function News() {
             width={'80%'}
             height={'100vh'}
             padding={windowType === 'Desktop' ? '50px' : '0px'} >
-            <TrendTitle />
+            <Heading size={'md'}>Trends For You</Heading>
             <SearchTweet />
             {
                 isSuccess &&
@@ -54,13 +60,15 @@ function News() {
                     ))
                 )
             }
-            <Button colorScheme={'white'}
-                width={'100%'}
-                bg={'white'}
-                color={'#1DA1F2'} disabled={isFetchingNextPage}
-                marginTop={'10px'} size={'lg'}
-                borderRadius={'10px'}
-                onClick={() => fetchNextPage()}>Show More...</Button>
+            {hasNextPage ? <Center>
+                <Spinner
+                    thickness='4px'
+                    speed='0.65s'
+                    emptyColor='gray.200'
+                    color='purple'
+                    size='xl'
+                />
+            </Center> : null}
         </VStack >
     )
 }

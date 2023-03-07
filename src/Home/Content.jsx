@@ -5,8 +5,6 @@ import OhterUserContent from './OhterUserContent'
 
 function Content() {
 
-    const parseUserAccount = JSON.parse(sessionStorage.getItem('user-account'))
-
     return (
         <VStack
             spacing={4}
