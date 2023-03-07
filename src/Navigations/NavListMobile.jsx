@@ -37,7 +37,7 @@ function NavListMobile() {
                 </Box>
                 <Box paddingTop={'20px'} onClick={() => setActive('List')} style={activeNavBarStyle('List')}>
                     <HStack spacing={4}>
-                        <Link to={'/Friends'}>
+                        <Link to={`/Friends/followers/${parseUserAccount.id}`}>
                             <RiFileList2Fill />
                         </Link>
                     </HStack>

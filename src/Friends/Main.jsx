@@ -1,24 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
-    Heading, Avatar, Button, Text, Popover, PopoverTrigger, Center, useToast,
+    Heading, Avatar, Text, Popover, PopoverTrigger, useToast, Button,
     PopoverContent, PopoverBody, PopoverArrow, HStack, VStack, StackDivider
 } from '@chakra-ui/react'
+import { CiSquareRemove } from "react-icons/ci"
 import NewsLoading from '../Loading/NewsLoading'
+import { Link } from 'react-router-dom'
 import { useWindowSize } from '../Custom/useWindowSize'
-import { getFriendList, manageFriend } from '../Fetch/friendList'
-import { useQuery } from 'react-query'
-import { useCustomMutation } from '../Custom/useCustomMutations'
-
-
-const TitlePage = () => {
-    return (
-        <React.Fragment>
-            <Heading size={'md'}>Your Friend List</Heading>
-        </React.Fragment>
-    )
-}
+import { useMutation, useQuery } from 'react-query'
+import { fetchProfile, editFriend } from '../Fetch/Profile'
+import { useParams } from 'react-router-dom'
 
 function Friends() {
+
+    const [personalAccount, setPersonalAccount] = useState(false)
+
+    const { category, id } = useParams()
 
     const windowType = useWindowSize()
 
@@ -26,19 +23,45 @@ function Friends() {
 
     const toast = useToast()
 
-    const { data, isLoading, isSuccess } = useQuery('friend-list', getFriendList, {
+    const { data, isLoading, isSuccess, refetch } = useQuery('friend-list', fetchProfile, {
         select: (data) => {
-            const userData = data.find(element => element.id === parseUserAccount.id)
-            return userData
+            let followers = []
+            let following = []
+            const user = data.filter(element => element.id === parseInt(id))
+            for (let x = 0; x < user[0].followers.length; x++) {
+                const userFollowers = data.filter(element => element.id === user[0].followers[x].authorId)
+                followers.push(userFollowers[0])
+            }
+            for (let y = 0; y < user[0].following.length; y++) {
+                const userFollowing = data.filter(element => element.id === user[0].following[y].authorId)
+                following.push(userFollowing[0])
+            }
+            return { ...user[0], followers: followers, following: following }
         }
     })
 
-    const { mutate: unfollowFriend } = useCustomMutation(manageFriend, 'friend-list')
+    const { mutateAsync: EditFriend } = useMutation(editFriend)
 
-    const handleUnfollowFriendList = (dataId) => {
-        const deleteFriend = data.friendList.filter(element => element.id !== dataId)
-        parseUserAccount.friendList = deleteFriend
-        unfollowFriend(parseUserAccount)
+    useEffect(() => {
+        if (parseInt(id) === parseUserAccount.id) setPersonalAccount(true)
+        else setPersonalAccount(false)
+    }, [id, parseUserAccount.id])
+
+    const handleEditFriend = async (dataPoint) => {
+        const removeFollowers = dataPoint.followers.filter(element => element.authorId !== data.id)
+        const removeFollowing = data.following.filter(element => element.id !== dataPoint.id)
+        const reduceRemoveFollowingObject = removeFollowing.map(element => ({ authorId: element.id }))
+        try {
+            await EditFriend({ ...dataPoint, followers: removeFollowers })
+            await EditFriend({ ...data, following: reduceRemoveFollowingObject })
+            refetch()
+            toast({
+                status: 'success',
+                description: 'You Unfollowed Your Friend'
+            })
+        } catch (err) {
+            console.error(err)
+        }
     }
 
     if (isLoading) {
@@ -53,55 +76,82 @@ function Friends() {
             divider={<StackDivider borderColor='gray.200' />}
             width={windowType === 'Desktop' ? '50%' : '80%'}
             height={'100vh'}
-            padding={'15px 5px 5px 15px'}>
-            <TitlePage />
-            {isSuccess && !data ?
-                <Center>
-                    <Heading>There is no friends</Heading>
-                </Center>
-                :
-                data.friendList.map(friend => (
+            padding={windowType === 'Desktop' ? '100px' : '0px'}>
+            <Heading size={'md'}>{category.toUpperCase()}</Heading>
+            {isSuccess && category === 'following' ? data.following.map(element => (
+                <React.Fragment  >
                     <HStack>
                         <Popover trigger='hover'>
                             <PopoverTrigger>
-                                <Avatar size={'lg'} src={friend.imageURL} />
+                                <Link to={`/Profile/${element.id}`}><Avatar src={element.profilePicture} /></Link>
                             </PopoverTrigger>
                             <PopoverContent>
                                 <PopoverArrow />
                                 <PopoverBody>
                                     <HStack align={'center'}>
-                                        <Avatar src={friend.imageURL} />
+                                        <Avatar src={element.profilePicture} />
                                         <VStack align={'left'}>
-                                            <Heading size={'sm'}>{friend.name}</Heading>
-                                            <Text fontSize={'md'}>{friend.email}</Text>
-                                            <Text textAlign={'justify'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti perferendis porro optio amet est praesentium beatae aut? Neque, similique et?</Text>
+                                            <Heading size={'sm'}>{element.username}</Heading>
+                                            <Text fontSize={'md'}>{element.email}</Text>
+                                            <Text textAlign={'justify'}>{element.description}</Text>
                                             <HStack>
-                                                <Text>{Math.floor(Math.random() * 10000) + "  Followers"}</Text>
-                                                <Text>{Math.floor(Math.random() * 10000) + "  Following"}</Text>
+                                                <Text>{element.followers.length + "  Followers"}</Text>
+                                                <Text>{element.following.length + "  Following"}</Text>
                                             </HStack>
-                                            <Button position={'relative'} right={0} onClick={() => {
-                                                handleUnfollowFriendList(friend.id)
-                                                toast({
-                                                    description: "You Unfollow Your Friends",
-                                                    status: 'error',
-                                                    duration: 2000,
-                                                    isClosable: false,
-                                                })
-                                            }}
-                                                colorScheme={'purple'} bg={'#885cd4'} color={'white'} borderRadius={'25px'}>Unfollow</Button>
                                         </VStack>
                                     </HStack>
                                 </PopoverBody>
                             </PopoverContent>
                         </Popover>
                         <VStack align={'left'}>
-                            <Text fontSize={'2xl'}>{friend.name}</Text>
-                            <Text fontSize={'xl'}>{friend.email}</Text>
+                            <Heading size={'md'}>{element.username}</Heading>
+                            <Heading opacity={0.7} size={'sm'}>{element.email}</Heading>
                         </VStack>
+                        {personalAccount ? <Button onClick={() => handleEditFriend(element)} variant={'ghost'} size={'sm'}><CiSquareRemove size={'lg'} /></Button> : null}
                     </HStack>
+                    {data.following.length === 0 ? <Heading size={'sm'}>You have no Following</Heading> : null}
+                </React.Fragment>
+            ))
+                :
+                data.followers.map(element => (
+                    <React.Fragment  >
+                        <HStack>
+                            <Popover trigger='hover'>
+                                <PopoverTrigger>
+                                    <Link to={`/Profile/${element.id}`}><Avatar src={element.profilePicture} /></Link>
+                                </PopoverTrigger>
+                                <PopoverContent>
+                                    <PopoverArrow />
+                                    <PopoverBody>
+                                        <HStack align={'center'}>
+                                            <Avatar src={element.profilePicture} />
+                                            <VStack align={'left'}>
+                                                <Heading size={'sm'}>{element.username}</Heading>
+                                                <Text fontSize={'md'}>{element.email}</Text>
+                                                <Text textAlign={'justify'}>{element.description}</Text>
+                                                <HStack>
+                                                    <Text>{element.followers.length + "  Followers"}</Text>
+                                                    <Text>{element.following.length + "  Following"}</Text>
+                                                </HStack>
+                                            </VStack>
+                                        </HStack>
+                                    </PopoverBody>
+                                </PopoverContent>
+                            </Popover>
+                            <VStack align={'left'}>
+                                <Heading size={'md'}>{element.username}</Heading>
+                                <Heading opacity={0.7} size={'sm'}>{element.email}</Heading>
+                            </VStack>
+                            {personalAccount ? <Button onClick={() => {
+                                handleEditFriend(element)
+                            }} variant={'ghost'} size={'sm'}><CiSquareRemove size={'lg'} /></Button> : null}
+                        </HStack>
+                    </React.Fragment>
                 ))
             }
-        </VStack>
+            {category === 'following' && data.following.length === 0 ? <Heading size={'sm'}>You Have No {category}</Heading> : null}
+            {category === 'followers' && data.followers.length === 0 ? <Heading size={'sm'}>You Have No {category}</Heading> : null}
+        </VStack >
     )
 }
 

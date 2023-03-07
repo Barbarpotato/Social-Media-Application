@@ -1,6 +1,6 @@
 import {
     Modal, ModalHeader, ModalBody, ModalFooter, Button,
-    ModalContent, ModalCloseButton, Input, Image, HStack
+    ModalContent, ModalCloseButton, Input, Image
 } from '@chakra-ui/react'
 import React, { useRef, useState, useEffect } from 'react'
 import { convertToBase64 } from '../Home/CreateTweetUser'

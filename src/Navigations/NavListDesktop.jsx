@@ -48,7 +48,7 @@ function NavListDesktop() {
                         </HStack>
                     </Box>
                 </Link>
-                <Link to={'/Friends'}>
+                <Link to={`/Friends/followers/${parseUserAccount.id}`}>
                     <Box onClick={() => setActive('List')} style={activeNavBarStyle('List')}>
                         <HStack spacing={4}>
                             <RiFileList2Fill />

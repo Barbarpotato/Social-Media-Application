@@ -48,6 +48,8 @@ const getMonthbyText = (number) => {
             return 'November'
         case 11:
             return 'December'
+        default:
+            return ''
     }
 }
 

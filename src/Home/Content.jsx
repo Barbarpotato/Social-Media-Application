@@ -1,10 +1,12 @@
 import React, { memo } from 'react'
 import { Heading, VStack, StackDivider } from '@chakra-ui/react'
 import CreateTweetUser from './CreateTweetUser'
-
 import OhterUserContent from './OhterUserContent'
 
 function Content() {
+
+    const parseUserAccount = JSON.parse(sessionStorage.getItem('user-account'))
+
     return (
         <VStack
             spacing={4}
@@ -19,5 +21,5 @@ function Content() {
         </VStack>
     )
 }
-//? memo : Prevent unnecessary re-rendet when the props are the same.
+//? memo : Prevent unnecessary re-render when the props are the same.
 export default memo(Content)
